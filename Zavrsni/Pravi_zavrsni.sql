@@ -7,49 +7,50 @@ go
 use Dnevnik_kalorija;
 go
 
-Create table Users(
+Create table Korisnici(
 Sifra int not null primary key identity(1,1),
-Username varchar(50) not null,
-Height_In_CM int not null,
-Current_weight_KG int not null,
+Korisnicko_ime varchar(50) not null,
+Visina_u_CM int not null,
+Trenutna_tezina_KG int not null,
+Zeljena_tezina_KG int not null,
 );
 -- unijeti korisnika za FK, unijeti 
-Create table Calorie_Diaries(
+Create table Dnevnik_kalorija(
 Sifra int not null primary key identity(1,1),
-Type_of_Activity varchar(200) not null,
-Calories_burned int not null,
-User_ int,
+Vrsta_aktivnosti varchar(200) not null,
+Potroseno_kalorija int not null,
+Korisnik int not null,
 );
-Create table Meals(
+Create table Obroci(
 Sifra int not null primary key identity(1,1),
-Name_ varchar (250) not null,
-Portion int not null,
-Calories_consumed int not null,
-User_ int,
+Hrana int not null,
+Porcija int not null,
+Uneseno_kalorija int not null,
+Korisnik_ int not null,
 );
-Create table Food(
+Create table Hrana(
 Sifra int not null primary key identity(1,1),
-Food_name varchar(250) not null,
-Calories_per_100g decimal(18,2) not null,
-Meal int,
+Naziv_hrane varchar(250) not null,
+Kalorije_na_100g decimal(18,2) not null,
+Obrok int,
 );
-alter table Calorie_Diaries add foreign key (User_) references Users(Sifra);
-alter table Meals add foreign key (User_) references Users(Sifra);
-alter table Food add foreign key (Meal) references Meals(Sifra);
+alter table Dnevnik_kalorija add foreign key (Korisnik_) references Korisnici(Sifra);
+alter table Obroci add foreign key (Korisnik_) references Korisnici(Sifra);
+alter table Hrana add foreign key (Obrok) references Obroci(Sifra);
 
 
 
- Insert into Users (Username, Height_In_CM, Current_weight_KG) values
- ('Veljko2805', 168, 67),
- ('Jopa_01' , 175, 85),
- ('Matko2501' , 172, 79),
- ('Petrich1712' , 166, 58),
- ('Zitarica2801' , 158, 55),
- ('Lega_Sokol' , 180, 80),
- ('Jure123' , 200, 120);
+ Insert into Korisnici (Korisnicko_ime, Visina_u_CM ,Tenutna_tezina_KG, Zeljena_tezina_KG) values
+ ('Veljko2805', 168, 67, 64), --1
+ ('Jopa_01' , 175, 85, 78), --2
+ ('Matko2501' , 172, 79, 70), --3
+ ('Petrich1712' , 166, 58, 53), --4
+ ('Zitarica2801' , 158, 55, 51), --5
+ ('Lega_Sokol' , 180, 80, 75), --6
+ ('Jure123' , 200, 120, 110) --7
  
 
- Insert into Calorie_Diaries (Type_of_Activity) values
+ Insert into Dnevnik_kalorija (Vrsta_aktivnosti) values
  ('Tri Sata hodanja, jedan sat trcanja, sedam sati spavanja, osam sati provedeno na poslu' ),
  ('dva sata hodanja, dva sata treniranja u gymu i osam sati spavanja, devet sati rada na skeli'),
  ('Hodanje jedan sat, Spavanje jedanaest sati, Igranje nogomet dva sata'),
@@ -58,32 +59,42 @@ alter table Food add foreign key (Meal) references Meals(Sifra);
  ('sest sati sna, jedan sat voznje biciklom, dva i pol sata treninga u teretani, devet sati rada u fitness centru'),
  ('sedam sati sna, jedan sat hodanja, jedan sat trcanja na inclinu lvl jedanest, jedan sat treniranja u teretani,');
 
- Insert into Calorie_Diaries (Calories_burned) values
- (900),
- (1500),
- (2000),
- (1000),
- (1700),
- (2150),
- (1200);
+ Insert into Dnevnik_kalorija (Potroseno_kalorija, Korisnik) values
+ (900, 1),
+ (1500, 2),
+ (2000, 3),
+ (1000, 4),
+ (1700, 5),
+ (2150, 6),
+ (1200, 7);
 
- Insert into Meals (Name_, Portion, Calories_consumed) values
- ('Breast fried, ', 3, 540),
- ('French fries', 1, 198),
- ('Pizza', 4, 976),
- ('Calzone', 454),
- ('Ice cream', 2, 548),
- ('Deep fried hake', 3, 510),
- ('Pizza', 1, 976);
 
- Insert into Food (Food_name, Calories_per_100g) values
- ('Breast fried', 180),
- ('Deep fried hake', 170),
- ('Ice cream', 274),
+
+ Insert into Obroci (Hrana, Porcija, Uneseno_kalorija, Korisnik) values
+ (1, 3, 540, 1),
+ (7, 1, 198, 2),
+ (9, 4, 976, 3),
+ (8, 454, 4),
+ (2, 2, 548, 5),
+ (9, 1, 976, 6)
+ (8, 2, 800, 7);
+
+ Insert into Hrana (Naziv_hrane, Kalorije_na_100g) values
+ --1
+ ('Pohana pileca prsa', 180),
+ --2
+ ('Sladoled', 274),
+ --3
  ('Tartar', 350),
+ --4
  ('Kinder bueno', 488),
- ('Breast, raw', 165),
- ('French fries', 198),
- ('Gouda cheese', 400),
- ('Calzone', 227),
+ --5
+ ('Pileca prsa na zaru', 165),
+ --6
+ ('Pomfrit', 198),
+ --7
+ ('Gouda sir', 400),
+ --8
+ ('Preklopljena pizza', 227),
+ --9
  ('Pizza', 976);
