@@ -17,7 +17,7 @@ Zeljena_tezina_KG int not null,
 -- unijeti korisnika za FK, unijeti 
 Create table Dnevnik_kalorija(
 Sifra int not null primary key identity(1,1),
-Vrsta_aktivnosti varchar(200) not null,
+Vrsta_aktivnosti varchar(1000) not null,
 Potroseno_kalorija int not null,
 Korisnik int not null,
 );
@@ -34,13 +34,13 @@ Naziv_hrane varchar(250) not null,
 Kalorije_na_100g decimal(18,2) not null,
 Obrok int,
 );
-alter table Dnevnik_kalorija add foreign key (Korisnik_) references Korisnici(Sifra);
+alter table Dnevnik_kalorija add foreign key (Korisnik) references Korisnici(Sifra);
 alter table Obroci add foreign key (Korisnik_) references Korisnici(Sifra);
 alter table Hrana add foreign key (Obrok) references Obroci(Sifra);
 
 
 
- Insert into Korisnici (Korisnicko_ime, Visina_u_CM ,Tenutna_tezina_KG, Zeljena_tezina_KG) values
+ Insert into Korisnici (Korisnicko_ime, Visina_u_CM , Trenutna_tezina_KG, Zeljena_tezina_KG) values
  ('Veljko2805', 168, 67, 64), --1
  ('Jopa_01' , 175, 85, 78), --2
  ('Matko2501' , 172, 79, 70), --3
@@ -50,33 +50,23 @@ alter table Hrana add foreign key (Obrok) references Obroci(Sifra);
  ('Jure123' , 200, 120, 110) --7
  
 
- Insert into Dnevnik_kalorija (Vrsta_aktivnosti) values
- ('Tri Sata hodanja, jedan sat trcanja, sedam sati spavanja, osam sati provedeno na poslu' ),
- ('dva sata hodanja, dva sata treniranja u gymu i osam sati spavanja, devet sati rada na skeli'),
- ('Hodanje jedan sat, Spavanje jedanaest sati, Igranje nogomet dva sata'),
- ('Spavanje osam sati, dva i pol sata trcanja, dva sata treniranja kickboxa, osam sati rada'),
- ('Voznja biciklom dva sata, cetri sata plesnog treninga, sest sati rada, pet sati sna') ,
- ('sest sati sna, jedan sat voznje biciklom, dva i pol sata treninga u teretani, devet sati rada u fitness centru'),
- ('sedam sati sna, jedan sat hodanja, jedan sat trcanja na inclinu lvl jedanest, jedan sat treniranja u teretani,');
+ Insert into Dnevnik_kalorija (Vrsta_aktivnosti, Potroseno_kalorija, Korisnik) values
+ ('Tri Sata hodanja, jedan sat trcanja, sedam sati spavanja, osam sati provedeno na poslu', 900, 1 ),
+ ('dva sata hodanja, dva sata treniranja u gymu i osam sati spavanja, devet sati rada na skeli', 1500, 2),
+ ('Hodanje jedan sat, Spavanje jedanaest sati, Igranje nogomet dva sata', 2000, 3),
+ ('Spavanje osam sati, dva i pol sata trcanja, dva sata treniranja kickboxa, osam sati rada', 1000, 4),
+ ('Voznja biciklom dva sata, cetri sata plesnog treninga, sest sati rada, pet sati sna', 1700, 5) ,
+ ('sest sati sna, jedan sat voznje biciklom, dva i pol sata treninga u teretani, devet sati rada u fitness centru', 2150, 6),
+ ('sedam sati sna, jedan sat hodanja, jedan sat trcanja na inclinu lvl jedanest, jedan sat treniranja u teretani',1200, 7);
 
- Insert into Dnevnik_kalorija (Potroseno_kalorija, Korisnik) values
- (900, 1),
- (1500, 2),
- (2000, 3),
- (1000, 4),
- (1700, 5),
- (2150, 6),
- (1200, 7);
-
-
-
- Insert into Obroci (Hrana, Porcija, Uneseno_kalorija, Korisnik) values
+ 
+ Insert into Obroci (Hrana, Porcija, Uneseno_kalorija, Korisnik_) values
  (1, 3, 540, 1),
  (7, 1, 198, 2),
  (9, 4, 976, 3),
- (8, 454, 4),
+ (8, 1, 454, 4),
  (2, 2, 548, 5),
- (9, 1, 976, 6)
+ (9, 1, 976, 6),
  (8, 2, 800, 7);
 
  Insert into Hrana (Naziv_hrane, Kalorije_na_100g) values
