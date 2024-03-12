@@ -1,0 +1,1 @@
+﻿Ciklicna.A1.Izvedi();
