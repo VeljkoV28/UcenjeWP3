@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Ciklicna")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7670659b00520fa22fe15fe26bbbe446869c7196")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e3312a23ca82ec97ca406e082c6ce2e18054c281")]
 [assembly: System.Reflection.AssemblyProductAttribute("Ciklicna")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Ciklicna")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

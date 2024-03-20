@@ -51,24 +51,25 @@ namespace Ciklicna
                 {
                     matrica[i, lijevo] = a--;
                 }
-                lijevo++;
+                lijevo--;
 
                 if (gore <= dolje)
                 {
                     for (int i = lijevo; i <= desno; i++)
                     {
-                        matrica[gore, i] = a--;
+                        matrica[gore, i] = a++;
                     }
                     gore++;
                 }
 
                 if (lijevo <= desno)
                 {
-                    for (int i = gore; i <= dolje; i++)
+                    for (int i = dolje; i >= gore; i++)
                     {
-                        matrica[i, desno] = a--;
+                            int v = a++;
+                        matrica[i, desno] = v;
                     }
-                    desno--;
+                    desno++;
                 }
             }
 
