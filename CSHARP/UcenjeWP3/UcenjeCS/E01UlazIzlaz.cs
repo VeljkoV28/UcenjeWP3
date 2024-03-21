@@ -13,13 +13,15 @@ namespace UcenjeCS
         {
 
             string Ime;
-            Console.WriteLine("Unesi ime: ");
+            Console.Write("Unesi ime: ");
 
             Ime = Console.ReadLine();
 
             Console.WriteLine(Ime);
 
         }
+
+
 
     }
 }

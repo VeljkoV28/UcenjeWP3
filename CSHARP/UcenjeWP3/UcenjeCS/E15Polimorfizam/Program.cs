@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+// Čitati https://github.com/tjakopec/OOP_JAVA_PHP_PYTHON_SWIFT
+
 namespace UcenjeCS.E15Polimorfizam
 {
     internal class Program
@@ -18,44 +20,36 @@ namespace UcenjeCS.E15Polimorfizam
 
         private void PozdraviOsobe()
         {
-
-            for (int i = 0; i < Osobe.Count; i++)
+            
+            for(int i=0;i<Osobe.Count;i++)
             {
                 Console.WriteLine(Osobe[i].Pozdravi());
-                Console.WriteLine("--------------");
             }
 
             foreach (Osoba o in Osobe)
             {
                 Console.WriteLine(o.Pozdravi());
-                Console.WriteLine("--------------");
             }
-
+            
 
             Osobe.ForEach(o => {
                 // Ovdje je manifestacija polimorfizma
                 Console.WriteLine(o.Pozdravi());
-                Console.WriteLine("--------------");
             });
         }
 
         private void NapuniListu()
         {
-            
             Osobe.Add(new Polaznik()
             {
                 Ime="Marko",
                 Prezime = "Kas"
-                
-        });
-            
+            });
             Osobe.Add(new Predavac()
             {
                 Ime = "Ivana",
-                Prezime = "Kas"
-
+                Prezime = "Lisica"
             });
-            
         }
 
         public static void Izvedi()

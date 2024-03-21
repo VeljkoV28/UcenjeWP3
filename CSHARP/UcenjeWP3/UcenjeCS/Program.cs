@@ -2,16 +2,19 @@
 
 using UcenjeCS;
 
+new UcenjeCS.E17KonzolnaAplikacija.Izbornik();
 
-//new UcenjeCS.E14VjezbanjeRadaSObjektima.Program();
+//new UcenjeCS.E16Vjezbanje.Program();
+
+//Test.Izvedi();
 
 //new UcenjeCS.E15Polimorfizam.Program();
 
-new UcenjeCS.E17KonzolnaAplikacija.Izbornik();
+//new UcenjeCS.E14VjezbanjeRadaSObjektima.Program();
 
 // kada vidimo ključnu riječ new poziva se konstruktor
 
-/*new UcenjeCS.E13Nasljedivanje.Program();*/ // pozvao sam konstruktor od Programa u E13...
+//new UcenjeCS.E13Nasljedivanje.Program(); // pozvao sam konstruktor od Programa u E13...
 
 //UcenjeCS.E12KlasaObjekt.Program.Izvedi();
 

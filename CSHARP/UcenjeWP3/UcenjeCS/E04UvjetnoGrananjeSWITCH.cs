@@ -6,45 +6,45 @@ using System.Threading.Tasks;
 
 namespace UcenjeCS
 {
-    internal class E04UvjetnoGrananjeSWITCH
+    internal class E04UvjetnoGrananjeSwitch
     {
         public static void Izvedi()
         {
             int i = 2;
 
-            if (i == 0)
+            // Ako je i=0 napiši DOBAR, i=1 napiši LOŠ, i=2 napiši ZAO
+
+            if(i== 0)
             {
                 Console.WriteLine("DOBAR");
-            }
-            else if (i == 1)
+            }else if(i== 1)
             {
-                Console.WriteLine("LOS");
-            }
-            else if (i == 2)
+                Console.WriteLine("LOŠ");
+            }else if(i== 2)
             {
                 Console.WriteLine("ZAO");
             }
 
-            switch (i)
+            switch(i) //radi s int, char i string
             {
                 case 0:
                     Console.WriteLine("DOBAR");
                     break;
                 case 1:
-                    Console.WriteLine("LOS");
+                    Console.WriteLine("LOŠ");
                     break;
                 case 2:
                     Console.WriteLine("ZAO");
                     break;
-                default:
+                default: // ovo je else u if-u
                     Console.WriteLine("Ostalo");
                     break;
-
             }
-            Console.Write("Unesi ime grada ");
+
+            Console.Write("Unesi ime grada: ");
             string grad = Console.ReadLine();
 
-            switch (grad)
+            switch(grad)
             {
                 case "Osijek":
                 case "Vukovar":
@@ -55,6 +55,7 @@ namespace UcenjeCS
                     Console.WriteLine("Dalmacija");
                     break;
             }
+
         }
     }
 }

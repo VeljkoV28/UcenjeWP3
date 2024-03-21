@@ -8,63 +8,36 @@ namespace UcenjeCS
 {
     internal class Z05
     {
+        // Program od korisnika unosi cijeli broj
+        // program ispisuje zbroj svih brojeva od 1 do unesenog broja
+        // Primjer za 100 će ispisati 5050
+
+        // ---- SAMO ONI KOJI SU RIJEŠILI PRVI
+        // Program unosi cijele brojeve sve dok se ne unese -1
+        // Program ispisuje najmanji uneseni broj
+
+
+
+
+        // ----- SAMO ONI KOJI SU RIJEŠILI DRUGI
+        // Program unosi cijeli broj
+        // Program ispisuje da li je unseni broj prosti (prim) PRIME (eng) ili ne
+
+
         public static void Izvedi()
         {
-            //    Console.Write("Cijeli broj ");
-            //    int Broj = int.Parse(Console.ReadLine());
-            //    int Zbroj = 0;
-
-            //    for(int i = 1; i <= Broj; i++)
-            //    {
-            //        Zbroj += i;
-            //    }
-            //Console.WriteLine(Zbroj);
-
-
-
-
-            //int i, najmanji=int.MaxValue;
-            //for (; ; )
-            //{
-            //    Console.Write("Cijeli broj ");
-            //    i=int.Parse(Console.ReadLine());
-            //    if(i== -1) 
-            //    {
-            //        break;
-            //    }
-            //    if (i < najmanji)
-            //    {
-            //        najmanji = i;
-            //    }
-
-
-            //}
-            //Console.WriteLine(najmanji);
-
-
-            Console.WriteLine("Unesi Broj: ");
+            Console.WriteLine("Unesi broj: ");
             int b = int.Parse(Console.ReadLine());
-
             bool prim = true;
-
-            for (int i=2; i < b; i++)
+            for(int i = 2; i < b; i++)
             {
-
-                if( b%1==0)
+                if(b%i== 0)
                 {
                     prim = false;
-                    break;
+                    break; // za broj 2536562 si uštedio 2536561 iteraciju
                 }
-
             }
-            Console.WriteLine(b+ " " + (prim ? " JE " : " NIJE ") + "prim broj");
-
-
-
-
+            Console.WriteLine(b + " " + (prim ? " JE " : " NIJE ") + "prim broj");
         }
-        
-
-
     }
 }

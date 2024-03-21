@@ -19,10 +19,9 @@ namespace UcenjeCS.E14VjezbanjeRadaSObjektima
             sb.Append(Ime);
             sb.Append(' ');
             sb.Append(Prezime);
-            sb.Append(' ');
+            sb.Append(" (");
             sb.Append(Dob);
             return sb.Append(')').ToString();
         }
-
     }
 }
