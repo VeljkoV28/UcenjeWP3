@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import SmjerService from '../../services/SmjerService';
-import { Table } from 'react-bootstrap';
+import { Button, Table } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import {RoutesNames} from '../../constants'
 
@@ -34,8 +34,27 @@ export default function Smjerovi(){
         }
 
         return 'NE';
-    }
 
+    }
+    async function obrisiAsync(sifra){
+        const odqovor =await SmjerService._delete(sifra);
+        if (odqovor.greska){
+            console.log((odqovor).poruka);
+            alert('Pogledaj konzolu');
+            return;
+        }
+        dohvatiSmjerove();
+
+
+    }
+    }
+    function obrisi(sifra){
+        obrisiAsync(sifra);
+        
+
+
+    }
+    
     return(
         <>
            <Container>
@@ -47,6 +66,7 @@ export default function Smjerovi(){
                             <th>Trajanje</th>
                             <th>Cijena</th>
                             <th>Verificiran</th>
+                            <th>Akcija</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -62,6 +82,11 @@ export default function Smjerovi(){
                                     ? 'Nije definirano'
                                     : smjer.verificiran ? 'DA' : 'NE'}
                                     */}
+                                <td>
+                                    <Button> onClick={()=>obrisi(smjer.sifra)}
+                                    variant='danger'
+                                    Obrisi</Button>
+                                </td>
                                 </td>
                             </tr>
                         ))}
@@ -70,4 +95,3 @@ export default function Smjerovi(){
            </Container>
         </>
     );
-}
